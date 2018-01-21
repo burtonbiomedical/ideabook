@@ -1,0 +1,19 @@
+<!--View for the new idea form-->
+<div class="card card-body">
+  <h3>Edit idea</h3>
+  <!--When using method override, rather than changing the method, we pass in a placeholder in our string for the value of action
+  that specifies the method we want to use, in this case its PUT, because we are editing the database entry. We also have to add a hidden
+  input of name '_method' and with a value corresponding to the method we want to use-->
+  <form action="/ideas/{{idea.id}}?_method=PUT" method='post'>
+    <input type="hidden" name="_method" value='PUT'>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" name="title" value='{{idea.title}}' required>
+    </div>
+    <div class="form-group">
+      <label for="details">Details</label>
+      <textarea name="details" rows=10 class="form-control" required>{{idea.details}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-dark">Submit</button>
+  </form>
+</div>
